@@ -7,20 +7,25 @@
 
 fn trim_me(input: &str) -> String {
     // TODO: Remove whitespace from both ends of a string!
-    input.trim().to_string()
+    for c in input.chars() {
+        if c != ' ' {
+            return input.trim().to_string();
+        }
+    }
+    String::new()
 }
 
 fn compose_me(input: &str) -> String {
     // TODO: Add " world!" to the string! There's multiple ways to do this!
-
-    //方法二 链式调用 String::from(input).add(" world!");
-    input.to_string() + " world!" //直接拼接字符串
+    let world = " world!".to_string();
+    let ans = input.to_owned() + &world;
+    ans
 }
 
 fn replace_me(input: &str) -> String {
     // TODO: Replace "cars" in the string with "balloons"!
-
-    input.replace("cars", "balloons")
+    let new_string_replace = input.replace("cars", "balloons");
+    new_string_replace
 }
 
 #[cfg(test)]
